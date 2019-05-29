@@ -1,5 +1,6 @@
 const path = require('path');
 
+// export routing options
 module.exports = (app) => {
 
     app.get('/survey', (req, res) => {
