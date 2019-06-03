@@ -160,7 +160,26 @@
         </div>
     </div>
 
+    <div id="results-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title"><strong>Best Match</strong></h2>
+                </div>
+                <div class="modal-body">
+                    <h2 id="match-name"></h2>
+                    <img id="match-img" src="#" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
 
@@ -179,17 +198,17 @@
     <script type="text/javascript">
         $('#submit').on('click', (event) => {
             event.preventDefault();
-            
-            let name = $('#name-field').val().trim();            
-            let photo = $('#photo-field').val().trim();            
+
+            let name = $('#name-field').val().trim();
+            let photo = $('#photo-field').val().trim();
 
             // check fields are not blank
             if (name && photo) {
-                
+
                 // get user info
                 let userData = {
                     name,
-                    photo, 
+                    photo,
                     scores: [
                         $('#question01').val(),
                         $('#question02').val(),
@@ -206,17 +225,19 @@
 
                 console.log(userData);
 
-                let currentURL = window.location.origin;
 
-                $.post(currentURL + "/api/friends", userData, (data) => {
+                $.post("/api/friends", userData, (data) => {
 
-                    console.log(data.name)
-                    console.log(data.photo)
+                    $("#match-name").text(data[0].name);
+                    $("#match-img").attr("src", data[0].photo);
+                    // Show the modal with the best match
+                    $("#results-modal").modal("toggle");
 
                 });
 
+            } else {
+                alert("Please enter your info!");
             }
-            // console.log(userData);
         });
     </script>
 
