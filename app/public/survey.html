@@ -6,12 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friend Finder</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 
 <body>
+
+
+    <div class="m-2">
+        <p>
+            <a href="/">Home</a>
+            |
+            <a href="/api/friends">API Friends List</a>
+            |
+            <a href="https://github.com/dolaku/friend-finder" target="_blank">GitHub Repo</a>
+        </p>
+    </div>
+
+
     <div class="container my-5" id="survey">
         <div class="row">
             <div class="col-12">
@@ -23,11 +37,11 @@
                         <div class="row">
                             <div class="col">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name">
+                                <input type="text" class="form-control" id="name-field">
                             </div>
                             <div class="col">
                                 <label for="photo">Link to Photo</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" id="photo-field">
                             </div>
                         </div>
                     </form>
@@ -50,7 +64,8 @@
                         </div>
                         <div class="question-set mb-5">
                             <h3>Question 2</h3>
-                            <label for="question02">Generally speaking, you rely more on your experience than your imagination.</label>
+                            <label for="question02">Generally speaking, you rely more on your experience than your
+                                imagination.</label>
                             <input type="range" class="form-control-range" id="question02">
                             <div class="answer-label d-flex justify-content-between">
                                 <small>Strongly Disagree</small>
@@ -59,7 +74,8 @@
                         </div>
                         <div class="question-set mb-5">
                             <h3>Question 3</h3>
-                            <label for="question03">You find it easy to stay relaxed and focused even when there is some pressure.</label>
+                            <label for="question03">You find it easy to stay relaxed and focused even when there is some
+                                pressure.</label>
                             <input type="range" class="form-control-range" id="question03">
                             <div class="answer-label d-flex justify-content-between">
                                 <small>Strongly Disagree</small>
@@ -86,7 +102,8 @@
                         </div>
                         <div class="question-set mb-5">
                             <h3>Question 6</h3>
-                            <label for="question06">It is often difficult for you to relate to other people’s feelings.</label>
+                            <label for="question06">It is often difficult for you to relate to other people’s
+                                feelings.</label>
                             <input type="range" class="form-control-range" id="question06">
                             <div class="answer-label d-flex justify-content-between">
                                 <small>Strongly Disagree</small>
@@ -95,7 +112,8 @@
                         </div>
                         <div class="question-set mb-5">
                             <h3>Question 7</h3>
-                            <label for="question07">In a discussion, truth should be more important than people’s sensitivities.</label>
+                            <label for="question07">In a discussion, truth should be more important than people’s
+                                sensitivities.</label>
                             <input type="range" class="form-control-range" id="question07">
                             <div class="answer-label d-flex justify-content-between">
                                 <small>Strongly Disagree</small>
@@ -113,7 +131,8 @@
                         </div>
                         <div class="question-set mb-5">
                             <h3>Question 9</h3>
-                            <label for="question09">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label>
+                            <label for="question09">You think that everyone’s views should be respected regardless of
+                                whether they are supported by facts or not.</label>
                             <input type="range" class="form-control-range" id="question09">
                             <div class="answer-label d-flex justify-content-between">
                                 <small>Strongly Disagree</small>
@@ -122,16 +141,19 @@
                         </div>
                         <div class="question-set mb-5">
                             <h3>Question 10</h3>
-                            <label for="question10">You feel more energetic after spending time with a group of people.</label>
+                            <label for="question10">You feel more energetic after spending time with a group of
+                                people.</label>
                             <input type="range" class="form-control-range" id="question10">
                             <div class="answer-label d-flex justify-content-between">
                                 <small>Strongly Disagree</small>
                                 <small>Strongly Agree</small>
                             </div>
                         </div>
+                    </div>
 
-
-
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary w-50" id="submit"><i class="fa fa-check-circle"
+                                aria-hidden="true"></i> Submit</button>
                     </div>
                 </form>
             </div>
@@ -144,8 +166,62 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+
+
+    <script type="text/javascript">
+        $('#submit').on('click', (event) => {
+            event.preventDefault();
+            
+            let name = $('#name-field').val().trim();            
+            let photo = $('#photo-field').val().trim();            
+
+            // check fields are not blank
+            if (name && photo) {
+                
+                // get user info
+                let userData = {
+                    name,
+                    photo, 
+                    scores: [
+                        $('#question01').val(),
+                        $('#question02').val(),
+                        $('#question03').val(),
+                        $('#question04').val(),
+                        $('#question05').val(),
+                        $('#question06').val(),
+                        $('#question07').val(),
+                        $('#question08').val(),
+                        $('#question09').val(),
+                        $('#question10').val()
+                    ]
+                };
+
+                console.log(userData);
+
+                let currentURL = window.location.origin;
+
+                $.post(currentURL + "/api/friends", userData, (data) => {
+
+                    console.log(data.name)
+                    console.log(data.photo)
+
+                });
+
+            }
+            // console.log(userData);
+        });
+    </script>
+
+
+
 </body>
 
 </html>
